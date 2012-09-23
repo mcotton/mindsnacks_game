@@ -2,50 +2,29 @@
 
 {% block container %}
 
-<div class="container">
-
-    <h1>mindsnacks challenge #1</h1>
-    <p>This is the simple slider game, get all the pieces in order and the blank <br>
-    space in the lower right corner.  The board with turn yellow to let you know <br>
-    when it is completed.  Try it in the lowest amount of moves.</p>
-    <hr>
-
-    <div class="row">
-        <div class="span5">
+<div id='wrapper'>
+    <h4></h4>
+        <div id='container'>
             <table id='game'>
-                <tr id='row1'>
+                <tr>
                     <td id='td_1'><div id='one' class='numbers'>1</div></td>
                     <td id='td_2'><div id='two' class='numbers'>2</div></td>
                     <td id='td_3'><div id='three' class='numbers'>3</div></td>
                 </tr>
-                <tr id='row2'>
+                <tr>
                     <td id='td_4'><div id='four' class='numbers'>4</div></td>
                     <td id='td_5'><div id='five' class='numbers'>5</div></td>
                     <td id='td_6'><div id='six' class='numbers'>6</div></td>
                 </tr>
-                <tr id='row3'>
+                <tr>
                     <td id='td_7'><div id='seven' class='numbers'>7</div></td>
                     <td id='td_8'><div id='eight' class='numbers'>8</div></td>
                     <td id='td_9'><div id='space' class='numbers'></div></td>
                 </tr>
             </table>
-  
         </div>
-
-        <div class="span3 offset1">
-            <h1 id='score'>You've used 0 moves</h1>
-            <hr>
-            <h3>Leaderboard</h3>
-            <ol id="leaderboad">
-                <li>username solved it with x moves</li>
-                <li>username solved it with x moves</li>
-                <li>username solved it with x moves</li>
-            </ol>
-        </div>
-    </div>
-    <div class="row">
-        <div class="span1 offset1">
-            <table id='controls' class='hidden-desktop'>
+        <div id='controls_container'>   
+            <table id='controls'>
                 <tr>
                     <td></td>
                     <td><button id='push_up'>up</button></td>
@@ -61,12 +40,12 @@
                     <td><button id='push_down'>down</button></td>
                     <td></td>
                 </tr>
-            </table>        
+            </table>
+                        
         </div>
-    </div><!-- row -->
-
-
 </div>
+
+
 
 {% endblock %}
 

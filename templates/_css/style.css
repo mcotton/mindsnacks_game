@@ -1,0 +1,40 @@
+#wrapper {
+    width: 100%;
+    padding-top: 40px;
+    display: inline;
+
+}
+
+#container {
+    width: 50%;
+    display: inline;
+}
+
+#controls_container {
+    width: 35%;
+    display: inline;
+}
+
+#game td {
+    height: 100px;
+    width: 100px;
+}
+
+.numbers {
+    font-size: 48px;
+    color: blue;
+    text-align: center;
+}
+
+#game td {
+    border: 1px solid black;
+}
+
+.correct {
+    background-color: yellow;
+}
+           
+button {
+    width: 50px;
+    height: 50px;
+}
