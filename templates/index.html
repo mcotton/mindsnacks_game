@@ -33,14 +33,21 @@
         </div>
 
         <div class="span3 offset1">
-            <h1 id='score'>You've used 0 moves</h1>
-            <hr>
             <h3>Leaderboard</h3>
             <ol id="leaderboad">
-                <li>username solved it with x moves</li>
-                <li>username solved it with x moves</li>
-                <li>username solved it with x moves</li>
+                {% for l in leaders %}
+                    <li>{{ l.username }} solved it with {{ l.score }} moves.</li>
+                {% endfor %}
             </ol>
+            <hr>
+            <h1 id='score'>You've used 0 moves</h1>
+            <div id='score_form' class='hidden'>
+                <h2>Yay!  you solved it!!!</h2>
+                <p>You can save your place on the leader board, just type in your name and hit 'save'</p>
+                <input type='text' name='username' id='username' placeholder='Username'><br>
+                <input type='hidden' name='game_id' id='game_id' value='{{ game_id }}'>
+                <input type='button' id='score_button' value='Save score'><br>
+            </div>
         </div>
     </div>
     <div class="row">

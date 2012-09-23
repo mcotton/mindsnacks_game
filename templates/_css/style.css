@@ -30,11 +30,21 @@
     border: 1px solid black;
 }
 
-.correct {
+.corrent {
+    visibility: show;
+
+}
+
+.correct td {
     background-color: yellow;
+}
+
+.hide {
+    visibility: hidden;
 }
            
 button {
     width: 50px;
     height: 50px;
 }
+

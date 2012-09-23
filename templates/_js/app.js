@@ -67,9 +67,13 @@
                  
                 $('h4').html('solved') 
                 $('#game').addClass('correct')
+                $('#score_form').removeClass('hidden')
+                $('#score_form').addClass('correct')
                 return true
             } else {
-                 $('#game').removeClass('correct')
+                $('#game').removeClass('correct')
+                $('#score_form').removeClass('correct')
+                $('#score_form').addClass('hidden')
                 $('h4').html('unsolved')
                 return false;
             }
@@ -105,6 +109,21 @@
             })
             $('#push_down').click(function() {
                 move_board('down')
+            })
+
+            $('#score_button').click(function() {
+                var payload = {
+                    score: score,
+                    username: $('#username').val(),
+                    game_id: $('#game_id').val()
+                }
+
+                if(payload.game_id != '') {
+                    $.post('/update', {score: score, username: $('#username').val(), game_id: $('#game_id').val()}, function(data) {
+                        $('#score_form p').html('Data has been sent')
+                        window.location('/')
+                    })
+                }
             })
         })  
        
