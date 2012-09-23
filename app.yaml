@@ -1,5 +1,5 @@
 application: mcttndsgn 
-version: 1 
+version:  
 runtime: python
 api_version: 1
 

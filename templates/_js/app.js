@@ -121,7 +121,7 @@
                 if(payload.game_id != '') {
                     $.post('/update', {score: score, username: $('#username').val(), game_id: $('#game_id').val()}, function(data) {
                         $('#score_form p').html('Data has been sent')
-                        window.location('/')
+                        document.location.reload()
                     })
                 }
             })
