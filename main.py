@@ -2,8 +2,8 @@
 
 #  Routes
 #  /
-#  /board/new
 #  /update
+#  /upload
 
 
 #  Decorators
@@ -12,10 +12,6 @@
 import os
 import random
 
-# They are changing Django version, need to include this
-# http://code.google.com/appengine/docs/python/tools/libraries.html#Django
-#from google.appengine.dist import use_library
-#use_library('django', '1.2')
 from google.appengine.ext.webapp import template
 
 import wsgiref.handlers, logging
@@ -69,13 +65,6 @@ class UploadHandler(webapp.RequestHandler):
     b.table = self.request.get('table')
     b.put()
 
-class BoardHandler(webapp.RequestHandler):
-  def post(self):
-    b = Board()
-    b.id = self.request.get('id') 
-    b.table = self.request.get('table') 
-    b.put()
-
 
 def is_local():
   # Turns on debugging error messages if on local env  
@@ -89,8 +78,7 @@ def render_template(call_from, template_name, template_values):
 def main():
   application = webapp.WSGIApplication([('/', MainHandler),
                                         ('/update', UpdateHandler),
-                                        ('/upload', UploadHandler),
-                                        ('/board/new', BoardHandler)],
+                                        ('/upload', UploadHandler)],
                                          debug = is_local())
                                          
   
