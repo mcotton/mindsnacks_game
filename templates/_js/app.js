@@ -3,6 +3,7 @@
         var names = ["one", "two", "three", "four", "five", "six", "seven", "eight", "space"]
         var ans = ["td_1", "td_2", "td_3", "td_4", "td_5", "td_6", "td_7", "td_8", "td_9"]
         var score = 0
+        var ready_to_play = true 
 
         function move_board(direction) {
             score = score + 1
@@ -51,14 +52,16 @@
             swap_pos.html(space) 
             
             check_board()
+            
         }
 
         function check_board() {
-            var res = []
+            res = []
             // Get current positions
             for(var i=0; i < 9; i++) { 
                 res[i] = $('#'+names[i]).parent().attr('id')
             }
+            
         
             // Check if answer match
             if(  (ans[1] == res[1]) && (ans[2] == res[2]) && (ans[3] == res[3]) && 
@@ -82,19 +85,21 @@
         $(document).ready(function() {
        
             $(document).keydown(function(e){
-                switch(e.keyCode) {
-                    case 37:
-                        move_board('left')
-                        break;
-                    case 38:
-                        move_board('up')
-                        break;
-                    case 39:
-                        move_board('right')
-                        break;
-                    case 40:
-                        move_board('down')
-                        break;
+                if(ready_to_play == true) {
+                    switch(e.keyCode) {
+                        case 37:
+                            move_board('left')
+                            break;
+                        case 38:
+                            move_board('up')
+                            break;
+                        case 39:
+                            move_board('right')
+                            break;
+                        case 40:
+                            move_board('down')
+                            break;
+                    }
                 }
             });
             
@@ -125,6 +130,7 @@
                     })
                 }
             })
+
         })  
        
         // Device acceleration from iPhone

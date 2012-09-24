@@ -1,5 +1,6 @@
 {% extends "template.html" %}
 
+
 {% block container %}
 
 <div class="container">
@@ -12,24 +13,7 @@
 
     <div class="row">
         <div class="span5">
-            <table id='game'>
-                <tr id='row1'>
-                    <td id='td_1'><div id='one' class='numbers'>1</div></td>
-                    <td id='td_2'><div id='two' class='numbers'>2</div></td>
-                    <td id='td_3'><div id='three' class='numbers'>3</div></td>
-                </tr>
-                <tr id='row2'>
-                    <td id='td_4'><div id='four' class='numbers'>4</div></td>
-                    <td id='td_5'><div id='five' class='numbers'>5</div></td>
-                    <td id='td_6'><div id='six' class='numbers'>6</div></td>
-                </tr>
-                <tr id='row3'>
-                    <td id='td_7'><div id='seven' class='numbers'>7</div></td>
-                    <td id='td_8'><div id='eight' class='numbers'>8</div></td>
-                    <td id='td_9'><div id='space' class='numbers'></div></td>
-                </tr>
-            </table>
-  
+            {{ table }}
         </div>
 
         <div class="span3 offset1">
@@ -79,3 +63,5 @@
 
 
 
+{% block footer %}
+{% endblock %}

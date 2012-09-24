@@ -10,6 +10,7 @@
 #  @login_required
 
 import os
+import random
 
 # They are changing Django version, need to include this
 # http://code.google.com/appengine/docs/python/tools/libraries.html#Django
@@ -27,11 +28,25 @@ from usermodels import *  #I'm storing my models in usermodels.py
 
 class MainHandler(webapp.RequestHandler):
   def get(self):
-    leaders = LeaderBoard.gql('where game_id=101 order by score limit 5') 
+    lst = []
+
+    b = Board.all()
+    for i in b.run():
+        lst.append(i.id)
+
+    random.shuffle(lst)
+
+    game_id = lst[0]
     
+    leaders = LeaderBoard.gql('where game_id=:1 order by score limit 5', int(game_id)) 
+
+    b = Board.gql('where id=:1', game_id)
+    t = b.get()
+
     template_values = {
       'leaders': leaders,
-      'game_id': '101'
+      'game_id': game_id,
+      'table': t.table
     }
 
     render_template(self, 'templates/index.html', template_values)
@@ -45,10 +60,10 @@ class UpdateHandler(webapp.RequestHandler):
     l.put()
 
 class BoardHandler(webapp.RequestHandler):
-  def get(self):
+  def post(self):
     b = Board()
-    b.id = 101
-    b.positions = 'td_3 td_2 td_1 td_6 td_5 td_4 td_8 td_7'
+    b.id = self.request.get('id') 
+    b.table = self.request.get('table') 
     b.put()
 
 

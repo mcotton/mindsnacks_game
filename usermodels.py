@@ -1,8 +1,8 @@
 from google.appengine.ext import db
 
 class Board(db.Model):
-    id = db.IntegerProperty()
-    positions = db.StringProperty()
+    id = db.StringProperty()
+    table = db.TextProperty()
 
 
 class LeaderBoard(db.Model):
