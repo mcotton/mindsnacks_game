@@ -1,0 +1,36 @@
+{% extends "template.html" %}
+
+
+{% block container %}
+
+<div class="container">
+
+    <h1>mindsnacks challenge #1</h1>
+    <p>This is the simple slider game, get all the pieces in order and the blank <br>
+    space in the lower right corner.  The board with turn yellow to let you know <br>
+    when it is completed.  Try it in the lowest amount of moves.</p>
+    <hr>
+
+    <div class="row">
+        <div class="span5">
+            <form action='/upload' method='POST'>
+                <textarea name='table' id='table'>
+                </textarea>
+                <input type='text' name='id' id='id'>
+                <input type='submit'>
+            </form>
+        </div>
+
+        <div class="span3 offset1">
+        </div>
+    </div>
+
+
+</div>
+
+{% endblock %}
+
+
+
+{% block footer %}
+{% endblock %}

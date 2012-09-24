@@ -59,6 +59,16 @@ class UpdateHandler(webapp.RequestHandler):
     l.game_id = int(self.request.get('game_id')) 
     l.put()
 
+class UploadHandler(webapp.RequestHandler):
+  def get(self):
+    render_template(self, 'templates/uploader.html', {})
+
+  def post(self):
+    b = Board()
+    b.id = self.request.get('id') 
+    b.table = self.request.get('table')
+    b.put()
+
 class BoardHandler(webapp.RequestHandler):
   def post(self):
     b = Board()
@@ -79,6 +89,7 @@ def render_template(call_from, template_name, template_values):
 def main():
   application = webapp.WSGIApplication([('/', MainHandler),
                                         ('/update', UpdateHandler),
+                                        ('/upload', UploadHandler),
                                         ('/board/new', BoardHandler)],
                                          debug = is_local())
                                          
